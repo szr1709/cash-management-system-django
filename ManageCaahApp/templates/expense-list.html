@@ -1,0 +1,35 @@
+{% extends 'master/base.html' %}
+
+
+{% block content %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Description</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Datetime</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for expense in expense_data %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{expense.description}}</td>
+      <td>{{expense.amount}}</td>
+      <td>{{expense.datetime}}</td>
+      <td>
+        <a href="{% url 'update_expense' expense.id %}" class="btn btn-secondary">Edit</a>
+        <a href="{% url 'delete_expense' expense.id %}" class="btn btn-danger">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<a href="{% url 'add_expense' %}" class="btn btn-primary">Add Expense</a>
+
+{% endblock content %}

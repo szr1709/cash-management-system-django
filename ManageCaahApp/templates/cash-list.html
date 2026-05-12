@@ -1,0 +1,36 @@
+{% extends 'master/base.html' %}
+
+
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">SL</th>
+      <th scope="col">Source</th>
+      <th scope="col">Datetime</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Description</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for cash in cash_data %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{cash.source}}</td>
+      <td>{{cash.datetime}}</td>
+      <td>{{cash.amount}}</td>
+      <td>{{cash.description}}</td>
+      <td>
+        <a href="{% url 'update_cash' cash.id %}" class="btn btn-secondary">Edit</a>
+        <a href="{% url 'delete_cash' cash.id %}" class="btn btn-danger">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<a href="{% url 'add_cash' %}" class="btn btn-primary">Add Cash</a>
+
+{% endblock content %}
