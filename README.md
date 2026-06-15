@@ -201,19 +201,10 @@ DEBUG=False
 6. Erase all default placeholder code inside the file completely, replace it with the configuration below, and click **Save**:
 
 ```python
-import os
 import sys
+sys.path.append('/home/aatansen/imageProject') # path of the project
 
-# Expand system path to find the Django project directory
-path = '/home/aatansen/imageProject'
-if path not in sys.path:
-    sys.path.append(path)
-
-os.environ['DJANGO_SETTINGS_MODULE'] = 'imageProject.settings'
-
-from django.core.wsgi import get_wsgi_application
-application = get_wsgi_application()
-
+from imageProject.wsgi import application
 ```
 
 ---
