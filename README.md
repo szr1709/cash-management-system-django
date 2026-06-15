@@ -54,7 +54,18 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media/'
 
 ```
+Environment variable
+For this we can use python-dotenv or python-decouple
 
+python-dotenv
+
+Install it pip install python-dotenv
+
+##Create a .env
+```python
+SECRET_KEY='write the key here'
+DEBUG=False
+```
 ### 3. Configure Routing for Media (`urls.py`)
 
 Ensure your main project `urls.py` is explicitly routing media files using `re_path`:
