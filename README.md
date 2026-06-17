@@ -23,8 +23,8 @@ pip install python-decouple whitenoise gunicorn pillow django-cleanup crispy-boo
 Open your `settings.py` file and update it to look like this:
 
 ```python
-import os
 from pathlib import Path
+
 from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
